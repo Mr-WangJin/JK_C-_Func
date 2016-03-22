@@ -7,17 +7,17 @@ SET(JK_FILE_LIST
 	jk_file.h
 	jk_file.cpp
 )
-#SOURCE_GROUP(jk_File FILES ${JK_FILE_LIST})
+SOURCE_GROUP(jk_File FILES ${JK_FILE_LIST})
 
 SET(JK_STRING_LIST
 	jk_string.h
 	jk_string.cpp
 )
-#SOURCE_GROUP(jk_String FILES ${JK_STRING_LIST})
+SOURCE_GROUP(jk_String FILES ${JK_STRING_LIST})
 
 
 SET(src_list
-	lib_jk.h
+	lib_jk.h	jk_common.h
 	${JK_FILE_LIST}
 	${JK_STRING_LIST}
 )
