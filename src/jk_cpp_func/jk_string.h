@@ -38,9 +38,9 @@ namespace JK_CPP_FUNC
 	public:
 		static string	from_bool( bool value );
 
-		static string   from_int ( int value );// base = 10
+		static string   from_int ( int value );			// base = 10
 
-		static string   from_dword ( dword value );// base = 16
+		static string   from_dword ( dword value );		// base = 16
 
 		static string	from_float( float value );
 

@@ -1,32 +1,28 @@
 
-SET(PROJECT_NAME "JK_CPP_FUNC")
+SET(PROJECT_NAME "JK_WIN_THREAD")
 
 ADD_DEFINITIONS(-D_JK_BUILD_DLL)
 
-## c++ file
+FILE(GLOB source_file_list *.cpp)
+FILE(GLOB header_file_list *.h)
+
 SET(JK_FILE_LIST
 	jk_file.h
 	jk_file.cpp
 )
 SOURCE_GROUP(jk_File FILES ${JK_FILE_LIST})
 
-## string
 SET(JK_STRING_LIST
 	jk_string.h
 	jk_string.cpp
 )
-SOURCE_GROUP(jk_String FILES ${JK_STRING_LIST})
++(jk_String FILES ${JK_STRING_LIST})
 
-## win thread
-FILE(GLOB JK_WIN_THREAD_SRC ./jk_win_thread/*.h)
-SOURCE_GROUP(jk_win_thread FILES ${JK_WIN_THREAD_SRC})
 
 SET(src_list
-	lib_jk.h	
-	jk_common.h
+	lib_jk.h	jk_common.h
 	${JK_FILE_LIST}
 	${JK_STRING_LIST}
-	${JK_WIN_THREAD_SRC}
 )
 
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})
