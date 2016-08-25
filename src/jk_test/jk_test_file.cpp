@@ -2,6 +2,7 @@
 #include "jk_file.h"
 #include <stdlib.h>
 #include <iostream>
+#include "thread/JKThread.h"
 
 JK_Test_File::JK_Test_File()
 {
@@ -13,10 +14,46 @@ JK_Test_File::~JK_Test_File()
 
 }
 
+class A
+{
+public:
+	A()
+	{
+		print();
+	};
+	virtual ~A(){};
+
+public:
+	virtual void print(){this->init();};
+
+public:
+	virtual void init() = 0;
+};
+class B : public A
+{
+public:
+	B(){};
+
+public:
+	virtual void print(){printf("A");};
+
+	virtual void init()
+	{
+		printf("ddd");
+	}
+};
+
+
 void JK_Test_File::TestClass()
 {
-	this->testWriteFile();
-	this->testReadFile();
+	//this->testWriteFile();
+	//this->testReadFile();
+
+	//this->testThread();
+	B *b = new B;
+	A* a = b;
+	a->init();
+
 }
 
 void JK_Test_File::testReadFile()
@@ -42,4 +79,9 @@ void JK_Test_File::testWriteFile()
 	else
 		std::cout<<"Test Write File if False!"<<std::endl;
 
+}
+void JK_Test_File::testThread()
+{
+	//JKThread::testThread();
+	JKThread::testMutex();
 }
