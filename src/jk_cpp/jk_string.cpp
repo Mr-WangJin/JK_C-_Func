@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 
-using namespace JK_CPP_FUNC;
+using namespace jk_cpp;
 
 
 bool JK_String::to_bool( string value )

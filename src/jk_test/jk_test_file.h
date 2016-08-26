@@ -14,7 +14,6 @@ public:
 protected:
 	void testReadFile();
 	void testWriteFile();
-	void testThread();
 
 private:
 	const char *m_pFileName;

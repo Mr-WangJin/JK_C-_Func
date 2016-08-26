@@ -1,9 +1,9 @@
 
-SET(PROJECT_NAME "JK_TEST")
+SET(PROJECT_NAME "jk_test")
 
 ADD_DEFINITIONS(-D_JK_BUILD_DLL)
 
-INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src/jk_cpp_func/)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src/jk_cpp/)
 LINK_DIRECTORIES(${LIBRARY_OUTPUT_PATH}/Debug/)
 
 FILE(GLOB source_file_list *.cpp)
@@ -19,11 +19,11 @@ ADD_EXECUTABLE(${PROJECT_NAME} ${src_list})
 
 IF(WIN32)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
-		debug ${LIBRARY_OUTPUT_PATH}/Debug/JK_CPP_FUNCd.lib optimized ${LIBRARY_OUTPUT_PATH}/Realse/JK_CPP_FUNC.lib
+		debug ${LIBRARY_OUTPUT_PATH}/Debug/jk_cppd.lib optimized ${LIBRARY_OUTPUT_PATH}/Realse/jk_cpp.lib
 	)
 ENDIF(WIN32)
 if(UNIX)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
-		debug Debug/JK_CPP_FUNCd.so optimized Realse/JK_CPP_FUNC.so
+		debug Debug/jk_cppd.so optimized Realse/jk_cpp.so
 	)
 ENDIF(UNIX)

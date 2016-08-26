@@ -1,4 +1,4 @@
-#include "JKThread.h"
+#include "jk_thread.h"
 
 #include <thread>
 #include <mutex>

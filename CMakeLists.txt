@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-PROJECT(JK_CPP)
+PROJECT(jk_cpp)
 
 MESSAGE(STATUS "This is Project's root direction " ${PROJECT_SOURCE_DIR})
 

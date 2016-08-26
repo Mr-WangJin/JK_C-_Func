@@ -2,6 +2,9 @@
 #define _JK_TEST_
 
 
+#define COUT_STR(str)		std::cout<<str<<std::endl;
+
+
 class JK_Test
 {
 public:

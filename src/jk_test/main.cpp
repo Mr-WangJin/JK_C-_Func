@@ -4,17 +4,15 @@
 #include "jk_test_win_thread.h"
 #include <stdlib.h>
 
-//extern bool ReadFile(const char* fileName, const char *_Mode, char *&buffer, long &lSize);
-
 #include <iostream>
 
+
+#define TEST_CLASS(tClass) tClass t; t.TestClass();
 
 
 int main()
 {
-
-	JK_Test_File testFile;
-	testFile.TestClass();
+	TEST_CLASS(JK_Test_File);
 
 	system("pause");
 	return 1;

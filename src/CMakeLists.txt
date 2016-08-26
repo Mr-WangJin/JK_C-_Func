@@ -41,7 +41,7 @@ ENDMACRO(START_EXAMPLE)
 #MESSAGE(STATUS "This is additionan include path" ${CMAKE_INCLUDE_PATH})
 
 
-ADD_SUBDIRECTORY(jk_cpp_func)
+ADD_SUBDIRECTORY(jk_cpp)
 ADD_SUBDIRECTORY(jk_test)
 
 #SET(PROJECT_NAME "particle01")

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../lib_jk.h"
+#include "lib_jk.h"
 
-class JKAPI JKThread
+class JK_API JKThread
 {
 public:
 	static void testThread();

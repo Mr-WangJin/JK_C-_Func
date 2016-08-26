@@ -4,10 +4,10 @@
 #include "lib_jk.h"
 
 
-namespace JK_CPP_FUNC
+namespace jk_cpp
 {
 
-	class JKAPI JK_File
+	class JK_API JK_File
 	{
 	public:
 		/**	

@@ -11,10 +11,10 @@ using namespace std;
 typedef __int64 interior_index;
 typedef unsigned long dword;
 
-namespace JK_CPP_FUNC
+namespace jk_cpp
 {
 
-	class JKAPI JK_String
+	class JK_API JK_String
 	{
 	public:
 		JK_String( void );
