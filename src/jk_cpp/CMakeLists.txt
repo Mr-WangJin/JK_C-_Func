@@ -25,6 +25,10 @@ SOURCE_GROUP(jk_win_thread FILES ${JK_WIN_THREAD_SRC})
 FILE(GLOB JK_THREAD_SRC ./thread/*.h ./thread/*.cpp)
 SOURCE_GROUP(jk_thread FILES ${JK_THREAD_SRC})
 
+## framework
+FILE(GLOB JK_FRAMEWORK_SRC ./jk_framework/*.h ./jk_framework/*.cpp)
+SOURCE_GROUP(jk_framework FILES ${JK_FRAMEWORK_SRC})
+
 SET(src_list
 	lib_jk.h	
 	jk_common.h
@@ -32,6 +36,7 @@ SET(src_list
 	${JK_STRING_LIST}
 	${JK_WIN_THREAD_SRC}
 	${JK_THREAD_SRC}
+	${JK_FRAMEWORK_SRC}
 )
 
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})

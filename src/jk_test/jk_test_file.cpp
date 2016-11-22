@@ -4,6 +4,8 @@
 #include <iostream>
 #include "thread/jk_thread.h"
 
+using namespace JK_NAMESPACE;
+
 JK_Test_File::JK_Test_File()
 {
 	m_pFileName = "testfile";
@@ -29,7 +31,7 @@ void JK_Test_File::testReadFile()
 	char *buffer = NULL;
 	long bufSize = 0;
 
-	if (jk_cpp::JK_File::ReadFile(m_pFileName, "r", buffer, bufSize) == true)
+	if (JK_File::ReadFile(m_pFileName, "r", buffer, bufSize) == true)
 		std::cout<<"Test Read File is TRUE!"<<std::endl;
 	else
 		std::cout<<"Test Read File if False!"<<std::endl;
@@ -41,7 +43,7 @@ void JK_Test_File::testWriteFile()
 	char *buffer = "testFile";
 	long bufSize = 8;
 
-	if (jk_cpp::JK_File::WriteFile(m_pFileName, "w+", buffer, bufSize) == true)
+	if (JK_File::WriteFile(m_pFileName, "w+", buffer, bufSize) == true)
 		std::cout<<"Test Write File is TRUE!"<<std::endl;
 	else
 		std::cout<<"Test Write File if False!"<<std::endl;

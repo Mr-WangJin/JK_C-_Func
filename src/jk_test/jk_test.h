@@ -10,8 +10,6 @@ class JK_Test
 public:
 	virtual ~JK_Test(){};
 
-
-
 	virtual void TestClass() = 0;
 };
 

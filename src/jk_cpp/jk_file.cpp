@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-using namespace jk_cpp;
+using namespace JK_NAMESPACE;
 
 
 bool JK_File::ReadFile(const char* fileName,const char *_Mode, char *&buffer, long &lSize)
