@@ -2,7 +2,6 @@
 #define _JK_COMMON_H_
 
 #include "lib_jk.h"
-#include <iostream>
 
 using namespace std;
 
@@ -19,6 +18,12 @@ using namespace std;
 #define JK_NAMESPACE	JK_Core
 #define BEGIN_JK_NAMESPACE	namespace JK_NAMESPACE {
 #define END_JK_NAMESPACE	};
+
+
+//½ûÓÃ¿½±´
+#define JK_DISABLE_COPY(Class) \
+    Class(const Class &)  = delete;\
+    Class &operator=(const Class &)  = delete;
  
 
 #endif
