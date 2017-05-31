@@ -82,7 +82,7 @@ interior_index JK_String::to_int64( string value )
 #ifdef LINUX26
 	sscanf ( str_tmp.c_str(), "%llx" , &ret );
 #else
-	sscanf ( str_tmp.c_str(), "%I64x" , &ret );
+	sscanf_s ( str_tmp.c_str(), "%I64x" , &ret );
 #endif //LINUX26
 
 		return ret;
@@ -91,7 +91,7 @@ interior_index JK_String::to_int64( string value )
 wstring	JK_String::to_wstring( string value )
 {
 	setlocale ( LC_ALL, ".ACP" );
-	int required_size = mbstowcs ( NULL, value.c_str(), 0 );
+	int required_size = mbstowcs ( NULL, value.c_str(), (size_t)0 );
 	wchar_t* wide_string = new wchar_t[ required_size + 1 ];
 	mbstowcs ( wide_string, value.c_str(), required_size + 1 );
 
@@ -235,7 +235,7 @@ interior_index	JK_String::wto_int64( wstring value )
 
 	const wchar_t* buf = value.c_str();
 
-	int size = value.size();
+	size_t size = value.size();
 	unsigned short tmp = 0;
 	for( int ni = 0; ni < size; ni++ )
 	{

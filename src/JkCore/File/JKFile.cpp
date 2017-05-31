@@ -32,8 +32,8 @@ bool JK_File::ReadFile(const char* fileName,const char *_Mode, char *&buffer, si
 bool JK_File::WriteFile(const char* fileName, const char *_Mode, const char *buffer, const size_t &lSize)
 {
 	FILE *pFile;
-	pFile = fopen(fileName, _Mode);
-	if (pFile==NULL) {fputs ("File error",stderr); return false;}
+	errno_t error = fopen_s(&pFile, fileName, _Mode);
+	if (error != 0) {fputs ("File error",stderr); return false;}
 
 	fwrite(buffer, sizeof(char), lSize, pFile);
 
