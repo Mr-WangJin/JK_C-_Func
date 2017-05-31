@@ -1,8 +1,8 @@
 #include "jk_test_file.h"
-#include "jk_file.h"
+#include "File/JKDir.h"
 #include <stdlib.h>
 #include <iostream>
-#include "thread/jk_thread.h"
+#include "Thread/jk_thread.h"
 
 using namespace JK_NAMESPACE;
 
