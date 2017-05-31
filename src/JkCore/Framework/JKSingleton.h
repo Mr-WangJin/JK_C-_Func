@@ -16,6 +16,7 @@ public:
   }
 
 protected:
+	JK_DISABLE_COPY(JKSingleton)
 	JKSingleton(){}
 
 };
