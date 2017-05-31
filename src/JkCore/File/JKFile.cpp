@@ -1,15 +1,15 @@
-#include "jk_file.h"
+#include "JKFile.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 using namespace JK_NAMESPACE;
 
 
-bool JK_File::ReadFile(const char* fileName,const char *_Mode, char *&buffer, long &lSize)
+bool JK_File::ReadFile(const char* fileName,const char *_Mode, char *&buffer, size_t &lSize)
 {
-
-	FILE *pFile = fopen ( fileName, _Mode );
-	if (pFile==NULL) {fputs ("File error",stderr); return false;}
+	FILE* pFile;
+	errno_t error = fopen_s(&pFile, fileName, _Mode);
+	if (error != 0) {fputs ("File error",stderr); return false;}
 
 	// obtain file size:
 	fseek (pFile , 0 , SEEK_END);
@@ -21,7 +21,7 @@ bool JK_File::ReadFile(const char* fileName,const char *_Mode, char *&buffer, lo
 	if (buffer == NULL) {fputs ("Memory error",stderr); fclose(pFile); return false;}
 
 	// copy the file into the buffer:
-	long result = fread (buffer,1,lSize,pFile);
+	size_t result = fread (buffer,1,lSize,pFile);
 	fclose (pFile);
 
 	if (result != lSize) {fputs ("Reading error",stderr); free(buffer); buffer = NULL; return false;}
@@ -29,7 +29,7 @@ bool JK_File::ReadFile(const char* fileName,const char *_Mode, char *&buffer, lo
 	return true;
 }
 
-bool JK_File::WriteFile(const char* fileName, const char *_Mode, const char *buffer, const long &lSize)
+bool JK_File::WriteFile(const char* fileName, const char *_Mode, const char *buffer, const size_t &lSize)
 {
 	FILE *pFile;
 	pFile = fopen(fileName, _Mode);

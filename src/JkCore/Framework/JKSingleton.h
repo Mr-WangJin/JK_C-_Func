@@ -1,14 +1,14 @@
 #pragma once
 
-#include "jk_common.h"
+#include "Common/JKCommon.h"
 
 BEGIN_JK_NAMESPACE
 
 template <class T>
-class Singleton
+class JKSingleton
 {
 public:
-  static T & theInstance()
+  static T & GetInstance()
   {
     static T instance;
 
@@ -16,7 +16,7 @@ public:
   }
 
 protected:
-	Singleton(){}
+	JKSingleton(){}
 
 };
 
