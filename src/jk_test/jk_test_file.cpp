@@ -1,5 +1,5 @@
 #include "jk_test_file.h"
-#include "File/JKDir.h"
+#include "File/JKFile.h"
 #include <stdlib.h>
 #include <iostream>
 #include "Thread/jk_thread.h"

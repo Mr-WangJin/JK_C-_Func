@@ -10,6 +10,9 @@ SOURCE_GROUP(JKCommon FILES ${JK_COMMON_LIST})
 FILE(GLOB JK_Framework_LIST ./Framework/*)
 SOURCE_GROUP(JKFramework FILES ${JK_Framework_LIST})
 
+FILE(GLOB JK_Exception_LIST ./Exception/*)
+SOURCE_GROUP(JKException FILES ${JK_Exception_LIST})
+
 FILE(GLOB JK_Log_LIST ./Log/*)
 SOURCE_GROUP(JKLog FILES ${JK_Log_LIST})
 
@@ -49,6 +52,7 @@ SET(src_list
 	${JK_THREAD_SRC}
 	${JK_FRAMEWORK_SRC}
 	${JK_ERROR_LIST}
+	${JK_Exception_LIST}
 )
 
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})
