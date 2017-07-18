@@ -1,12 +1,9 @@
-#include "String/JKString.h"
-#include "Common/JKCommon.h"
-#include <string>
+#include "JKStringUtil.h"
 #include <algorithm>
 
-using namespace jk_cpp;
+using namespace JK_NAMESPACE;
 
-
-bool JK_String::to_bool( string value )
+bool JKStringUtil::to_bool( string value )
 {
 	if ( "True" == value || "true" == value )
 	{
@@ -16,12 +13,12 @@ bool JK_String::to_bool( string value )
 	return false;
 }
 
-int	JK_String::to_int( string value )
+int	JKStringUtil::to_int( string value )
 {
 	return atoi( value.c_str() );
 }
 
-dword	JK_String::to_dword( string value )
+dword	JKStringUtil::to_dword( string value )
 {
 	unsigned long total_value = 0;
 
@@ -63,17 +60,17 @@ dword	JK_String::to_dword( string value )
 	return total_value;
 }
 
-float	JK_String::to_float( string value )
+float	JKStringUtil::to_float( string value )
 {
 	return (float)atof( value.c_str() );
 }
 
-double	JK_String::to_double( string value )
+double	JKStringUtil::to_double( string value )
 {
 	return atof( value.c_str() );
 }
 
-interior_index JK_String::to_int64( string value )
+interior_index JKStringUtil::to_int64( string value )
 {
 	interior_index ret;
 
@@ -88,7 +85,7 @@ interior_index JK_String::to_int64( string value )
 		return ret;
 }
 
-wstring	JK_String::to_wstring( string value )
+wstring	JKStringUtil::to_wstring( string value )
 {
 	setlocale ( LC_ALL, ".ACP" );
 	int required_size = mbstowcs ( NULL, value.c_str(), (size_t)0 );
@@ -103,7 +100,7 @@ wstring	JK_String::to_wstring( string value )
 }
 
 // from
-string	JK_String::from_bool( bool value )
+string	JKStringUtil::from_bool( bool value )
 {
 	if ( value )
 	{
@@ -113,7 +110,7 @@ string	JK_String::from_bool( bool value )
 	return string( "false" );
 }
 
-string	JK_String::from_int( int value )
+string	JKStringUtil::from_int( int value )
 {
 	char value_text[16];
 	memset( value_text, 0, 16 );
@@ -127,7 +124,7 @@ string	JK_String::from_int( int value )
 #endif //LINUX26
 }
 
-string	JK_String::from_dword( dword value )
+string	JKStringUtil::from_dword( dword value )
 {
 	char value_text[16];
 	memset( value_text, 0, 16 );
@@ -141,7 +138,7 @@ string	JK_String::from_dword( dword value )
 #endif //LINUX26
 }
 
-string	JK_String::from_float( float value )
+string	JKStringUtil::from_float( float value )
 {
 	char value_text[64];
 	memset( value_text, 0, 64 );
@@ -151,7 +148,7 @@ string	JK_String::from_float( float value )
 	return string( value_text );
 }
 
-string	JK_String::from_double( double value )
+string	JKStringUtil::from_double( double value )
 {
 	char value_text[128];
 	memset( value_text, 0, 128 );
@@ -161,7 +158,7 @@ string	JK_String::from_double( double value )
 	return string( value_text );
 }
 
-string JK_String::from_int64( interior_index value )
+string JKStringUtil::from_int64( interior_index value )
 {
 	char str_i64[64];
 	memset( str_i64, 0, 64 );
@@ -176,7 +173,7 @@ string JK_String::from_int64( interior_index value )
 }
 
 
-string	JK_String::from_wstring( wstring value )
+string	JKStringUtil::from_wstring( wstring value )
 {
 	setlocale ( LC_ALL, ".ACP" );
 
@@ -191,7 +188,7 @@ string	JK_String::from_wstring( wstring value )
 	return ret_string;
 }
 
-bool JK_String::wto_bool( wstring value )
+bool JKStringUtil::wto_bool( wstring value )
 {
 	if ( L"True" == value || L"true" == value )
 	{
@@ -201,35 +198,35 @@ bool JK_String::wto_bool( wstring value )
 	return false;
 }
 
-int JK_String::wto_int( wstring value )
+int JKStringUtil::wto_int( wstring value )
 {
-	string mb_str = JK_String::from_wstring ( value );
+	string mb_str = JKStringUtil::from_wstring ( value );
 
-	return JK_String::to_int ( mb_str );
+	return JKStringUtil::to_int ( mb_str );
 }
 
-dword JK_String::wto_dword( wstring value )
+dword JKStringUtil::wto_dword( wstring value )
 {
-	string mb_str = JK_String::from_wstring ( value );
+	string mb_str = JKStringUtil::from_wstring ( value );
 
-	return JK_String::to_dword ( mb_str );
+	return JKStringUtil::to_dword ( mb_str );
 }
 
-float JK_String::wto_float( wstring value )
+float JKStringUtil::wto_float( wstring value )
 {
-	string mb_str = JK_String::from_wstring ( value );
+	string mb_str = JKStringUtil::from_wstring ( value );
 
-	return JK_String::to_float( mb_str );
+	return JKStringUtil::to_float( mb_str );
 }
 
-double JK_String::wto_double( wstring value )
+double JKStringUtil::wto_double( wstring value )
 {
-	string mb_str = JK_String::from_wstring ( value );
+	string mb_str = JKStringUtil::from_wstring ( value );
 
-	return JK_String::to_double( mb_str );
+	return JKStringUtil::to_double( mb_str );
 }
 
-interior_index	JK_String::wto_int64( wstring value )
+interior_index	JKStringUtil::wto_int64( wstring value )
 {
 	__int64 idx = 0;
 
@@ -264,7 +261,7 @@ interior_index	JK_String::wto_int64( wstring value )
 }
 
 // w from
-wstring	JK_String::wfrom_bool( bool value )
+wstring	JKStringUtil::wfrom_bool( bool value )
 {
 	if ( value )
 	{
@@ -274,38 +271,38 @@ wstring	JK_String::wfrom_bool( bool value )
 	return wstring( L"false" );
 }
 
-wstring	JK_String::wfrom_int( int value )
+wstring	JKStringUtil::wfrom_int( int value )
 {
-	string mb_str = JK_String::from_int ( value );
+	string mb_str = JKStringUtil::from_int ( value );
 
-	return JK_String::to_wstring( mb_str );
+	return JKStringUtil::to_wstring( mb_str );
 }
 
-   wstring JK_String::wfrom_dword ( dword value )
+   wstring JKStringUtil::wfrom_dword ( dword value )
 {
-	string mb_str = JK_String::from_dword( value );
+	string mb_str = JKStringUtil::from_dword( value );
 
-	return JK_String::to_wstring( mb_str );
+	return JKStringUtil::to_wstring( mb_str );
 }
 
-   wstring JK_String::wfrom_float ( float value )
+   wstring JKStringUtil::wfrom_float ( float value )
 {
-	string mb_str = JK_String::from_float( value );
+	string mb_str = JKStringUtil::from_float( value );
 
-	return JK_String::to_wstring( mb_str );
+	return JKStringUtil::to_wstring( mb_str );
 }
 
-wstring	JK_String::wfrom_double( double value )
+wstring	JKStringUtil::wfrom_double( double value )
 {
-	string mb_str = JK_String::from_double( value );
+	string mb_str = JKStringUtil::from_double( value );
 
-	return JK_String::to_wstring( mb_str );
+	return JKStringUtil::to_wstring( mb_str );
 }
 
-   wstring JK_String::wfrom_int64 ( interior_index value )
+   wstring JKStringUtil::wfrom_int64 ( interior_index value )
 {
-	string mb_str = JK_String::from_int64( value );
+	string mb_str = JKStringUtil::from_int64( value );
 
-	return JK_String::to_wstring( mb_str );
+	return JKStringUtil::to_wstring( mb_str );
 }
 

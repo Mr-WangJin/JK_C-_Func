@@ -31,7 +31,7 @@ void JK_Test_File::testReadFile()
 	char *buffer = NULL;
 	long bufSize = 0;
 
-	if (JK_File::ReadFile(m_pFileName, "r", buffer, bufSize) == true)
+	if (JKFile::ReadFile(m_pFileName, "r", buffer, bufSize) == true)
 		std::cout<<"Test Read File is TRUE!"<<std::endl;
 	else
 		std::cout<<"Test Read File if False!"<<std::endl;
