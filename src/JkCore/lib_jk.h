@@ -1,7 +1,7 @@
 #ifndef _LIB_JK_H_
 #define _LIB_JK_H_
 
-#if defined(WIN32) && defined(_JK_BUILD_DLL)
+#if defined(WIN32) && defined(JK_Core_DLL)
 /* We are building jk_cpp as a Win32 DLL */
 #define JK_API __declspec(dllexport)
 #elif defined(__GNUC__) && defined(_JK_BUILD_DLL)
