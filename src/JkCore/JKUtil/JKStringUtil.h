@@ -1,16 +1,17 @@
 #pragma once
 
 #include "Common/JKCommon.h"
-
+#include "Common/JKBase.h"
 
 using namespace std;
+
+BEGIN_JK_NAMESPACE
+
 
 typedef __int64 interior_index;
 typedef unsigned long dword;
 
-BEGIN_JK_NAMESPACE
-
-class JK_API JKStringUtil
+class JK_API JKStringUtil : public JKBase
 {
 public:
 	JKStringUtil( void ) = delete;

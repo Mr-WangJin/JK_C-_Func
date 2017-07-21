@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Common/JKCommon.h"
+#include "Common/JKBase.h"
 #include <stdexcept>
 #include <sstream>
 #include <cctype>
@@ -18,7 +19,7 @@
 
 BEGIN_JK_NAMESPACE
 
-class JK_API JKPath 
+class JK_API JKPath : public JKBase
 {
 public:
 	enum path_type {
@@ -52,8 +53,6 @@ public:
 	size_t file_size() const;
 
 	bool is_directory() const;
-	
-
 	bool is_file() const;
 
 	std::string extension() const;

@@ -1,4 +1,4 @@
-
+﻿
 SET(PROJECT_NAME "JKCore")
 
 ADD_DEFINITIONS(-DJK_Core_DLL)
@@ -13,7 +13,7 @@ SOURCE_GROUP(JKFramework FILES ${JK_Framework_LIST})
 FILE(GLOB JK_Exception_LIST ./Exception/*)
 SOURCE_GROUP(JKException FILES ${JK_Exception_LIST})
 
-FILE(GLOB JK_Log_LIST ./Log/*)
+FILE(GLOB JK_Log_LIST ./JKLog/*)
 SOURCE_GROUP(JKLog FILES ${JK_Log_LIST})
 
 ## c++ file 所有关于文件的操作
@@ -28,18 +28,19 @@ SOURCE_GROUP(JKUtil FILES ${JK_Util_LIST})
 FILE(GLOB JK_ERROR_LIST ./Error/*)
 SOURCE_GROUP(JKError FILES ${JK_ERROR_LIST})
 
-
 ## thread
 FILE(GLOB JK_WIN_THREAD_SRC ./jk_win_thread/*)
 SOURCE_GROUP(jk_win_thread FILES ${JK_WIN_THREAD_SRC})
 
 ## std thread
-FILE(GLOB JK_THREAD_SRC ./thread/*)
-SOURCE_GROUP(JKThread FILES ${JK_THREAD_SRC})
+#FILE(GLOB JK_THREAD_SRC ./thread/*)
+#SOURCE_GROUP(JKThread FILES ${JK_THREAD_SRC})
 
 ## framework
-FILE(GLOB JK_FRAMEWORK_SRC ./jk_framework/*)
-SOURCE_GROUP(jk_framework FILES ${JK_FRAMEWORK_SRC})
+FILE(GLOB JK_FRAMEWORK_SRC ./JKFramework/*.h ./Framework/*.cpp)
+FILE(GLOB JK_SmartPtr_SRC ./JKFramework/SmartPtr/*.h ./JKFramework/SmartPtr/*.cpp)
+SOURCE_GROUP(JKFramework FILES ${JK_FRAMEWORK_SRC})
+SOURCE_GROUP(JKFramework\\JKSmartPtr FILES ${JK_SmartPtr_SRC})
 
 SET(src_list
 	lib_jk.h	
@@ -49,10 +50,11 @@ SET(src_list
 	${JK_FILE_LIST}
 	${JK_Util_LIST}
 	${JK_WIN_THREAD_SRC}
-	${JK_THREAD_SRC}
+	#${JK_THREAD_SRC}
 	${JK_FRAMEWORK_SRC}
 	${JK_ERROR_LIST}
 	${JK_Exception_LIST}
+	${JK_SmartPtr_SRC}
 )
 
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})
