@@ -1,12 +1,12 @@
-#include "JKFile.h"
+#include "JKFileIO.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "JKUtil/JKStringUtil.h"
 
-using namespace JK_NAMESPACE;
+USING_JK_NAMESPACE
 
 
-bool JKFile::ReadFile(const JKString &fileName, const OpenMode &mode, JKString &data, size_t &lSize)
+bool JKFileIO::ReadFile(const JKString &fileName, const OpenMode &mode, JKString &data, size_t &lSize)
 {
 	FILE* pFile;
 	errno_t error = fopen_s(&pFile, fileName.c_str(), getMode(mode).c_str());
@@ -49,7 +49,7 @@ bool JKFile::ReadFile(const JKString &fileName, const OpenMode &mode, JKString &
 	return true;
 }
 
-bool JKFile::WriteFile(const JKString &fileName, const OpenMode &mode, const JKString &data, const size_t &lSize)
+bool JKFileIO::WriteFile(const JKString &fileName, const OpenMode &mode, const JKString &data, const size_t &lSize)
 {
 	FILE *pFile;
 	errno_t error = fopen_s(&pFile, fileName.c_str(), getMode(mode).c_str());
@@ -65,7 +65,7 @@ bool JKFile::WriteFile(const JKString &fileName, const OpenMode &mode, const JKS
 	return true;
 }
 
-JKString JKFile::getMode(const OpenMode & mode)
+JKString JKFileIO::getMode(const OpenMode & mode)
 {
 	switch (mode)
 	{

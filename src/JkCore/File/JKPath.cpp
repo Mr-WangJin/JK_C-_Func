@@ -6,7 +6,7 @@
 #include <cerrno>
 #include <cstring>
 
-using namespace JK_NAMESPACE;
+USING_JK_NAMESPACE
 
 
 JKPath::JKPath() 
