@@ -1,15 +1,20 @@
 #pragma once
 
-#include "Common/JKCommon.h"
-#include "Common/JKBase.h"
+#include "JKCommon/JKCommon.h"
+#include "JKCommon/JKBase.h"
 
 BEGIN_JK_NAMESPACE
 
 class JK_API JKDateUtil : public JKBase
 {
 public:
-	JKDateUtil();
+	/** 
+	 *	时间格式 yyyy-MM-dd hh:mm::ss
+	 */
+	JKDateUtil(const JKString &);
 	~JKDateUtil();
+
+	JKString toString();
 
 
 private:

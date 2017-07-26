@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Common/JKCommon.h"
-#include "Common/JKBase.h"
+#include "JKCommon/JKCommon.h"
+#include "JKCommon/JKBase.h"
 #include <stdexcept>
 #include <sstream>
 #include <cctype>

@@ -1,8 +1,8 @@
 #ifndef _JK_FILE_H_
 #define _JK_FILE_H_
 
-#include "Common/JKCommon.h"
-#include "Common/JKBase.h"
+#include "JKCommon/JKCommon.h"
+#include "JKCommon/JKBase.h"
 
 BEGIN_JK_NAMESPACE
 

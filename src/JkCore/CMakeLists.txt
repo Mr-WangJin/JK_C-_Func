@@ -4,20 +4,20 @@ SET(PROJECT_NAME "JKCore")
 ADD_DEFINITIONS(-DJK_Core_DLL)
 
 ## common 公共操作
-FILE(GLOB JK_COMMON_LIST ./Common/*)
+FILE(GLOB JK_COMMON_LIST ./JKCommon/*)
 SOURCE_GROUP(JKCommon FILES ${JK_COMMON_LIST})
 
-FILE(GLOB JK_Framework_LIST ./Framework/*)
+FILE(GLOB JK_Framework_LIST ./JKFramework/*)
 SOURCE_GROUP(JKFramework FILES ${JK_Framework_LIST})
 
-FILE(GLOB JK_Exception_LIST ./Exception/*)
+FILE(GLOB JK_Exception_LIST ./JKException/*)
 SOURCE_GROUP(JKException FILES ${JK_Exception_LIST})
 
 FILE(GLOB JK_Log_LIST ./JKLog/*)
 SOURCE_GROUP(JKLog FILES ${JK_Log_LIST})
 
 ## c++ file 所有关于文件的操作
-FILE(GLOB JK_FILE_LIST ./File/*)
+FILE(GLOB JK_FILE_LIST ./JKFile/*)
 SOURCE_GROUP(JKFile FILES ${JK_FILE_LIST})
 
 ## string 所有关于字符串的操作
@@ -25,7 +25,7 @@ FILE(GLOB JK_Util_LIST ./JKUtil/*)
 SOURCE_GROUP(JKUtil FILES ${JK_Util_LIST})
 
 ## error 
-FILE(GLOB JK_ERROR_LIST ./Error/*)
+FILE(GLOB JK_ERROR_LIST ./JKError/*)
 SOURCE_GROUP(JKError FILES ${JK_ERROR_LIST})
 
 ## thread
