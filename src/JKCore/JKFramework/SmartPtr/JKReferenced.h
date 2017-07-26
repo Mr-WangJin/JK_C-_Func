@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Common/JKCommon.h"
+#include "JKCommon/JKCommon.h"
 #include <mutex>          // std::mutex
 
 BEGIN_JK_NAMESPACE

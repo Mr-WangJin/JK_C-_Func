@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Common/JKCommon.h"
+#include "JKCommon/JKCommon.h"
 #include "JKFramework/SmartPtr/JKReferenced.h"
 #include <ostream>
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "JKReferenced.h"
-#include "Common/JKCommon.h"
+#include "JKCommon/JKCommon.h"
 
 #include <mutex>
 #include <set>
