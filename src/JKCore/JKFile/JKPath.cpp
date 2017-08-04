@@ -176,7 +176,7 @@ JKPath JKPath::operator/(const JKPath &other) const
 	return result;
 }
 
-std::string JKPath::str(path_type type /*= native_path*/) const
+std::string JKPath::str(PathType type /*= native_path*/) const
 {
 	std::ostringstream oss;
 
@@ -196,7 +196,7 @@ std::string JKPath::str(path_type type /*= native_path*/) const
 	return oss.str();
 }
 
-void JKPath::set(const std::string &str, path_type type/* = native_path*/)
+void JKPath::set(const std::string &str, PathType type/* = native_path*/)
 {
 	m_type = type;
 	if (type == windows_path) {
@@ -276,7 +276,7 @@ JKPath JKPath::getcwd()
 	}
 
 #if defined(_WIN32)
-std::wstring JKPath::wstr(path_type type /*= native_path*/) const
+std::wstring JKPath::wstr(PathType type /*= native_path*/) const
 {
 	std::string temp = str(type);
 	int size = MultiByteToWideChar(CP_UTF8, 0, &temp[0], (int)temp.size(), NULL, 0);
@@ -286,7 +286,7 @@ std::wstring JKPath::wstr(path_type type /*= native_path*/) const
 }
 
 
-void JKPath::set(const std::wstring &wstring, path_type type /*= native_path*/)
+void JKPath::set(const std::wstring &wstring, PathType type /*= native_path*/)
 {
 	std::string string;
 	if (!wstring.empty()) {

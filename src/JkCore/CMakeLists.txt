@@ -29,12 +29,8 @@ FILE(GLOB JK_ERROR_LIST ./JKError/*)
 SOURCE_GROUP(JKError FILES ${JK_ERROR_LIST})
 
 ## thread
-FILE(GLOB JK_WIN_THREAD_SRC ./jk_win_thread/*)
-SOURCE_GROUP(jk_win_thread FILES ${JK_WIN_THREAD_SRC})
-
-## std thread
-#FILE(GLOB JK_THREAD_SRC ./thread/*)
-#SOURCE_GROUP(JKThread FILES ${JK_THREAD_SRC})
+FILE(GLOB JK_THREAD_LIST ./JKThread/*)
+SOURCE_GROUP(JKThread FILES ${JK_THREAD_LIST})
 
 ## framework
 FILE(GLOB JK_FRAMEWORK_SRC ./JKFramework/*.h ./Framework/*.cpp)
@@ -49,8 +45,7 @@ SET(src_list
 	${JK_Log_LIST}
 	${JK_FILE_LIST}
 	${JK_Util_LIST}
-	${JK_WIN_THREAD_SRC}
-	#${JK_THREAD_SRC}
+	${JK_THREAD_LIST}
 	${JK_FRAMEWORK_SRC}
 	${JK_ERROR_LIST}
 	${JK_Exception_LIST}

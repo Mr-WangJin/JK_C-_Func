@@ -1,10 +1,7 @@
 #include "jk_test_file.h"
-#include "File/JKFile.h"
 #include <stdlib.h>
 #include <iostream>
-#include "Thread/jk_thread.h"
 
-using namespace JK_NAMESPACE;
 
 JK_Test_File::JK_Test_File()
 {
@@ -28,24 +25,24 @@ void JK_Test_File::TestClass()
 void JK_Test_File::testReadFile()
 {
 	/* test file */
-	char *buffer = NULL;
-	long bufSize = 0;
-
-	if (JKFile::ReadFile(m_pFileName, "r", buffer, bufSize) == true)
-		std::cout<<"Test Read File is TRUE!"<<std::endl;
-	else
-		std::cout<<"Test Read File if False!"<<std::endl;
-	free(buffer);
+// 	char *buffer = NULL;
+// 	long bufSize = 0;
+// 
+// 	if (JKFile::ReadFile(m_pFileName, "r", buffer, bufSize) == true)
+// 		std::cout<<"Test Read File is TRUE!"<<std::endl;
+// 	else
+// 		std::cout<<"Test Read File if False!"<<std::endl;
+// 	free(buffer);
 }
 void JK_Test_File::testWriteFile()
 {
-	/* test file */
-	char *buffer = "testFile";
-	long bufSize = 8;
-
-	if (JK_File::WriteFile(m_pFileName, "w+", buffer, bufSize) == true)
-		std::cout<<"Test Write File is TRUE!"<<std::endl;
-	else
-		std::cout<<"Test Write File if False!"<<std::endl;
+// 	/* test file */
+// 	char *buffer = "testFile";
+// 	long bufSize = 8;
+// 
+// 	if (JK_File::WriteFile(m_pFileName, "w+", buffer, bufSize) == true)
+// 		std::cout<<"Test Write File is TRUE!"<<std::endl;
+// 	else
+// 		std::cout<<"Test Write File if False!"<<std::endl;
 
 }

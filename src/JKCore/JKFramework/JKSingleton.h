@@ -5,7 +5,7 @@
 BEGIN_JK_NAMESPACE
 
 template <class T>
-class JKSingleton
+class JK_API JKSingleton
 {
 public:
   static T & GetInstance()
