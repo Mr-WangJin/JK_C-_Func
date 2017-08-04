@@ -1,15 +1,12 @@
 
-#include "File/JKFile.h"
 #include "jk_test_file.h"
 #include "jk_test_win_thread.h"
 #include "jk_try_catch.h"
-
+#include "JKThread/JKThreadPool.h"
 #include <stdlib.h>
 #include <iostream>
 
-#include "jk_framework/jk_ioc.h"
-
-using namespace JK_NAMESPACE;
+USING_JK_NAMESPACE
 
 #define TEST_CLASS(tClass)	\
 	std::cout<<"-------------Begin Test "#tClass"------------------"<<std::endl;\
@@ -17,13 +14,32 @@ using namespace JK_NAMESPACE;
 
 
 
+int test1(int i) {
+	for (int a = i; a < i + 1000; ++a)
+	{
+		std::cout << a << std::endl;
+	}
+	return 2;
+};
+int test2(int i) {
+	for (int a = i; a< i+1000; ++a)
+	{
+		std::cout << a << std::endl;
+	}
+	return 2;
+};
+
+
 int main()
 {
-	TEST_CLASS(JK_Test_File);
-	TEST_CLASS(JK_TryCatch);
+// 	TEST_CLASS(JK_Test_File);
+// 	TEST_CLASS(JK_TryCatch);
 
-	TempTest a;
-	a.getValue<int>();
+	JK_NAMESPACE::JKThreadPool t;
+
+	t.enqueue(test1, 2);
+	t.enqueue(test2, 2000);
+	t.enqueue(test2, 4000);
 
 
 	system("pause");

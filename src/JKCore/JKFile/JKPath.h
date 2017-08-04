@@ -22,7 +22,7 @@ BEGIN_JK_NAMESPACE
 class JK_API JKPath : public JKBase
 {
 public:
-	enum path_type {
+	enum PathType {
 		windows_path = 0,
 		posix_path = 1,
 #if defined(_WIN32)
@@ -33,14 +33,14 @@ public:
 	};
 
 	JKPath();
-	JKPath(const JKPath &JKPath);
-	JKPath(JKPath &&JKPath);
-	JKPath(const char *string);
-	JKPath(const std::string &string);
+	JKPath(const JKPath &);
+	JKPath(JKPath &&);
+	JKPath(const char *);
+	JKPath(const std::string &);
 
 #if defined(_WIN32)
-	JKPath(const std::wstring &wstring);
-	JKPath(const wchar_t *wstring);
+	JKPath(const std::wstring &);
+	JKPath(const wchar_t *);
 #endif
 
 	size_t length() const;
@@ -63,8 +63,8 @@ public:
 
 	JKPath operator/(const JKPath &other) const;
 
-	std::string str(path_type type = native_path) const;
-	void set(const std::string &str, path_type type = native_path);
+	std::string str(PathType type = native_path) const;
+	void set(const std::string &str, PathType type = native_path);
 
 	JKPath &operator=(const JKPath &JKPath);
 
@@ -83,10 +83,10 @@ public:
 	static JKPath getcwd();
 
 #if defined(_WIN32)
-	std::wstring wstr(path_type type = native_path) const;
+	std::wstring wstr(PathType type = native_path) const;
 
 
-	void set(const std::wstring &wstring, path_type type = native_path);
+	void set(const std::wstring &wstring, PathType type = native_path);
 
 	JKPath &operator=(const std::wstring &str);
 #endif
@@ -97,7 +97,7 @@ public:
 protected:
 	static std::vector<std::string> tokenize(const std::string &string, const std::string &delim);
 protected:
-	path_type m_type;
+	PathType m_type;
 	std::vector<std::string> m_path;
 	bool m_absolute;
 };
