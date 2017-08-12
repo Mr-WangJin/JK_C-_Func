@@ -52,6 +52,9 @@ SET(src_list
 	${JK_SmartPtr_SRC}
 )
 
+#INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/include/)
+#LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/)
+
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})
 INCLUDE_DIRECTORIES( ./ )
 ADD_LIBRARY(${PROJECT_NAME} ${BUILD_DYNAMIC_OR_STATIC} ${src_list})
@@ -60,9 +63,22 @@ IF(WIN32)
 #	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
 #		debug glfw3.lib optimized glfw3.lib
 #	)
+#TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
+#		debug ${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/Debug/lib_json.lib optimized ${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/Release/lib_json.lib
+#	)
 ENDIF(WIN32)
 if(UNIX)
 #	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
 #		debug glfw3.so optimized glfw3.so
 #	)
 ENDIF(UNIX)
+
+
+
+
+
+
+
+
+
+

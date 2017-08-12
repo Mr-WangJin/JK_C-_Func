@@ -16,3 +16,10 @@
 
 #define JK_STRING_LOWER(str) std::transform( str.begin(), str.end(), str.begin(), ::tolower );
 #define JK_STRING_UPPER(str) std::transform( str.begin(), str.end(), str.begin(), ::toupper );
+
+
+
+/** Êý×éºê */
+#define JK_ARRAY_SIZE(a) (sizeof(a)/sizeof(a[0]))
+
+
