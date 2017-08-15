@@ -3,35 +3,11 @@
 #include <JKCommon\JKCommon.h>
 #include <JKFramework\SmartPtr\JKRef_Ptr.h>
 
-BEGIN_JK_NAMESPACE
-
-
-//template<typename T>
-//class JK_API JKJsonValue
-//{
-//public:
-//	JKJsonValue();
-//	virtual ~JKJsonValue();
-//
-//public:
-//	T value;
-//
-//};
-//
-//template<typename T>
-//JKJsonValue<T>::JKJsonValue()
-//{
-//
-//}
-//
-//template<typename T>
-//JKJsonValue<T>::~JKJsonValue()
-//{
-//
-//}
 
 #define JsonCppWriteValue(obj, XXX) obj[#XXX] = XXX;
-		
+#define JsonCppWriteKeyValue(obj, key, XXX) obj[key] = XXX;
+#define JsonCppWriteClass(obj, XXX) XXX->Serialization(obj);
+
 //#define JsonCppParseBegin(val) for (Value::ConstMemberIterator itr = val.MemberBegin(); itr != val.MemberEnd(); ++itr){
 //#define JsonCppParseEnd()  }
 
@@ -41,7 +17,7 @@ BEGIN_JK_NAMESPACE
 #define JsonCppParseToUInt(obj, XXX)  if (obj.isMember(#XXX)) XXX = obj[#XXX].asUint();
 #define JsonCppParseToUint64(obj, XXX) if (obj.isMember(#XXX)) XXX = obj[#XXX].asUint64();
 #define JsonCppParseToDouble(obj, XXX) if (obj.isMember(#XXX)) XXX = obj[#XXX].asDouble();
-#define JsonCppParseToClass(obj, XXX) if (obj.isMember(#XXX)) XXX->ParseJson(obj[#XXX]);
+#define JsonCppParseToClass(obj, XXX) if (obj.isMember(#XXX)) XXX->Deserialization(obj[#XXX]);
 //#define JsonCppParseToChar(obj, XXX) if (strcmp(itr->name.GetString(), #XXX) == 0)\
 //{\
 //	int size = ARRAY_SIZE(XXX);\
@@ -50,13 +26,15 @@ BEGIN_JK_NAMESPACE
 //	strncpy(XXX, s, std::min(size, len));\
 //}\
 
+BEGIN_JK_NAMESPACE
+
 
 template<typename T>
 class JK_API JKJsonCPPBase
 {
 public:
-	virtual void ParseJson(const T& val) {};
-
+	virtual void Serialization(T&) {};
+	virtual void Deserialization(const T&) {};
 };
 
 /*
