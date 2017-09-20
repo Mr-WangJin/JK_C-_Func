@@ -17,6 +17,16 @@ public:
 	JKStringUtil( void ) = delete;
 
 public:
+	static wstring UTF8ToUnicode(const string& str);
+
+	static string UnicodeToUTF8(const wstring& str);
+	
+	static wstring ANSIToUnicode(const string& str);
+
+	static string UnicodeToANSI(const wstring& str);
+	
+
+public:
 	static bool		to_bool( string value );
 
 	static int		to_int ( string value );// base = 10
@@ -71,6 +81,7 @@ public:
 	static wstring	wfrom_double( double value );
 
 	static wstring	wfrom_int64( interior_index value );
+
 
 };
 
