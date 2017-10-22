@@ -1,12 +1,15 @@
 #pragma once
 
-#include "Common/JKCommon.h"
+#include "JKCommon/JKCommon.h"
 
 BEGIN_JK_NAMESPACE
 
-template <class T>
+template <typename T>
 class JK_API JKSingleton
 {
+public:
+	JKSingleton() {};
+
 public:
   static T & GetInstance()
   {
@@ -17,7 +20,6 @@ public:
 
 protected:
 	JK_DISABLE_COPY(JKSingleton)
-	JKSingleton(){}
 
 };
 
