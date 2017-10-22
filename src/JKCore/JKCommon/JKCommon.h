@@ -18,6 +18,7 @@ using namespace std;
 #define AUTO_DELETE(ptr) {if(ptr){delete ptr;(ptr)=NULL;} }
 
 
+/** 定义字符串类型 */
 #ifdef _UNICODE
 typedef std::wstring JKString;
 typedef wchar_t* pstr;
@@ -31,7 +32,14 @@ typedef const char* CPStr;
 #define _str(x) x
 
 #endif // _UNICODE
- 
+
+/** 定义基本数据类型 */
+typedef unsigned long long JKUInt64;
+typedef unsigned int JKUInt;
+typedef unsigned long JKULong;
+typedef unsigned long JKLong;
+typedef unsigned short JKUShort;
+
 
 
 
