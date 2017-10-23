@@ -17,6 +17,8 @@ SET(src_list
 	${header_file_list}
 )
 
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/glm/)
+
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})
 ADD_EXECUTABLE(${PROJECT_NAME} ${src_list})
 

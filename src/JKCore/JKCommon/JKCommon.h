@@ -10,6 +10,8 @@
 
 using namespace std;
 
+BEGIN_JK_NAMESPACE
+
 #define MIN(a,b) ( (a)<(b) ? (a):(b))
 #define MAX(a,b) ( (a)>(b) ? (a):(b))
 
@@ -42,6 +44,6 @@ typedef unsigned short JKUShort;
 
 
 
-
+END_JK_NAMESPACE
 
 #endif

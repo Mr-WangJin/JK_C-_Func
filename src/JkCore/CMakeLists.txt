@@ -32,8 +32,18 @@ SOURCE_GROUP(JKError FILES ${JK_ERROR_LIST})
 FILE(GLOB JK_THREAD_LIST ./JKThread/*)
 SOURCE_GROUP(JKThread FILES ${JK_THREAD_LIST})
 
+## algorithm
+FILE(GLOB JK_ALGORITHM_LIST ./JKAlgorithm/*.h ./JKAlgorithm/*.cpp)
+FILE(GLOB JK_Curve_SRC ./JKAlgorithm/Curve/*.h ./JKAlgorithm/Curve/*.cpp)
+SOURCE_GROUP(JKAlgorithm FILES ${JK_ALGORITHM_LIST})
+SOURCE_GROUP(JKAlgorithm\\JKCurve FILES ${JK_Curve_SRC})
+
+## command
+FILE(GLOB JK_COMMAND_LIST ./JKCommand/*)
+SOURCE_GROUP(JKCommand FILES ${JK_COMMAND_LIST})
+
 ## framework
-FILE(GLOB JK_FRAMEWORK_SRC ./JKFramework/*.h ./Framework/*.cpp)
+FILE(GLOB JK_FRAMEWORK_SRC ./JKFramework/*.h ./JKFramework/*.cpp)
 FILE(GLOB JK_SmartPtr_SRC ./JKFramework/SmartPtr/*.h ./JKFramework/SmartPtr/*.cpp)
 SOURCE_GROUP(JKFramework FILES ${JK_FRAMEWORK_SRC})
 SOURCE_GROUP(JKFramework\\JKSmartPtr FILES ${JK_SmartPtr_SRC})
@@ -50,10 +60,13 @@ SET(src_list
 	${JK_ERROR_LIST}
 	${JK_Exception_LIST}
 	${JK_SmartPtr_SRC}
+	${JK_ALGORITHM_LIST}
+	${JK_Curve_SRC}
+	${JK_COMMAND_LIST}
 )
 
-#INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/include/)
-#LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/glm/)
+#LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/build/bin/Debug/)
 
 #ADD_LIBRARY(${PROJECT_NAME} SHARED ${src_list})
 INCLUDE_DIRECTORIES( ./ )
@@ -61,10 +74,10 @@ ADD_LIBRARY(${PROJECT_NAME} ${BUILD_DYNAMIC_OR_STATIC} ${src_list})
 
 IF(WIN32)
 #	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
-#		debug glfw3.lib optimized glfw3.lib
+#		debug 
 #	)
-#TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
-#		debug ${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/Debug/lib_json.lib optimized ${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/Release/lib_json.lib
+#	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
+#		debug ${PROJECT_SOURCE_DIR}/build/bin/Debug/lib_json.lib optimized ${PROJECT_SOURCE_DIR}/3rdParty/jsoncpp/lib/x64/Release/lib_json.lib
 #	)
 ENDIF(WIN32)
 if(UNIX)
