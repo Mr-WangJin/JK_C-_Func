@@ -27,3 +27,4 @@
 
 
 
+#define JK_FreeAndNullptr(obj) {if (obj != nullptr){delete obj; obj = nullptr;}}
