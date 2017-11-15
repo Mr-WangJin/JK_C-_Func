@@ -1,8 +1,16 @@
 #include "JKStringUtil.h"
 #include <algorithm>
+#ifdef _WIN32
+
 #include <Windows.h>
 
+#endif // _WIN32
+
+
+
 using namespace JK_NAMESPACE;
+
+#ifdef _WIN32
 
 wstring JKStringUtil::UTF8ToUnicode(const string& str)
 {
@@ -84,7 +92,6 @@ wstring JKStringUtil::ANSIToUnicode(const string& str)
 	return rt;
 }
 
-
 string JKStringUtil::UnicodeToANSI(const wstring& str)
 {
 	char*     pElementText;
@@ -113,6 +120,32 @@ string JKStringUtil::UnicodeToANSI(const wstring& str)
 	delete[] pElementText;
 	return strText;
 }
+
+string JKStringUtil::UTF8ToANSI(const string& str)
+{
+	BSTR    bstrWide;
+	char*   pszAnsi;
+	int     nLength;
+	const char *pszCode = str.c_str();
+
+	nLength = MultiByteToWideChar(CP_UTF8, 0, pszCode, strlen(pszCode) + 1, NULL, NULL);
+	bstrWide = SysAllocStringLen(NULL, nLength);
+
+	MultiByteToWideChar(CP_UTF8, 0, pszCode, strlen(pszCode) + 1, bstrWide, nLength);
+
+	nLength = WideCharToMultiByte(CP_ACP, 0, bstrWide, -1, NULL, 0, NULL, NULL);
+	pszAnsi = new char[nLength];
+
+	WideCharToMultiByte(CP_ACP, 0, bstrWide, -1, pszAnsi, nLength, NULL, NULL);
+	SysFreeString(bstrWide);
+
+	string r(pszAnsi);
+	delete[] pszAnsi;
+	return r;
+}
+
+#endif // _WIN32
+
 
 bool JKStringUtil::to_bool( string value )
 {
