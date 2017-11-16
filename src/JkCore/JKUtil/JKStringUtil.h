@@ -18,13 +18,13 @@ public:
 
 public:
 	static wstring UTF8ToUnicode(const string& str);
-
 	static string UnicodeToUTF8(const wstring& str);
 	
 	static wstring ANSIToUnicode(const string& str);
-
 	static string UnicodeToANSI(const wstring& str);
-	
+
+	static string UTF8ToANSI(const string& str);
+	//static string ANSIToUTF8(const string& str);	
 
 public:
 	static bool		to_bool( string value );

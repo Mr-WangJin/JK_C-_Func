@@ -33,11 +33,11 @@ int test2(int i) {
 
 void testThreadPool() {
 
-	//JK_NAMESPACE::JKThreadPool t;
+	JK_NAMESPACE::JKThreadPool t;
 
-	//t.enqueue(test1, 2);
-	//t.enqueue(test2, 2000);
-	//t.enqueue(test2, 4000);
+	t.enqueue(test1, 2);
+	t.enqueue(test2, 2000);
+	t.enqueue(test2, 4000);
 }
 
 #include <basetsd.h>
