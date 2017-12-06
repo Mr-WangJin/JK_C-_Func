@@ -23,11 +23,12 @@ JKDateUtil::~JKDateUtil()
 {
 }
 
-JKString JKDateUtil::toString()
+JKString JKDateUtil::utc_time()
 {
 	char buf[128] = {0};
-	tm* local; //本地时间   
-	local = localtime(&m_time); //转为本地时间  
+	tm* local = localtime(&m_time);			//转为本地时间  
+	//gmtime_r(&timestamp, &result_tm);
+
 	strftime(buf, 64, "%Y-%m-%d %H:%M:%S", local);
 	
 	return JKString(buf);

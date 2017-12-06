@@ -1,11 +1,10 @@
 #include "JKStringUtil.h"
 #include <algorithm>
 #ifdef _WIN32
-
 #include <Windows.h>
-
 #endif // _WIN32
-
+#include <sstream>
+#include <iostream> 
 
 
 using namespace JK_NAMESPACE;
@@ -144,6 +143,25 @@ string JKStringUtil::UTF8ToANSI(const string& str)
 	return r;
 }
 
+std::string JKStringUtil::to_hex(unsigned char c, bool lower)
+{
+	const std::string hex = "0123456789ABCDEF";
+
+	std::stringstream ss;
+	ss << hex[c >> 4] << hex[c & 0xf];
+
+	return lower ? to_lower(ss.str()) : ss.str();
+}
+std::string JKStringUtil::to_upper(std::string src)
+{
+	std::transform(src.begin(), src.end(), src.begin(), toupper);
+	return src;
+}
+std::string JKStringUtil::to_lower(std::string src)
+{
+	std::transform(src.begin(), src.end(), src.begin(), tolower);
+	return src;
+}
 #endif // _WIN32
 
 

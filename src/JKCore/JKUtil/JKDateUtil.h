@@ -14,7 +14,7 @@ public:
 	JKDateUtil(const JKString &);
 	~JKDateUtil();
 
-	JKString toString();
+	JKString utc_time();
 
 
 private:

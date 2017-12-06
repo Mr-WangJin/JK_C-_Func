@@ -7,6 +7,7 @@
 #include <iostream>
 #include <JKFramework\JKJsonCPPHelper.h>
 #include "JKAlgorithm\Curve\JKLagrange.h"
+#include "JKUtil\JKUrl.h"
 
 USING_JK_NAMESPACE
 
