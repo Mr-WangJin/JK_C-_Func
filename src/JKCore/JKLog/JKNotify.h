@@ -57,6 +57,8 @@ extern JK_API JKNotifyHandler *getNotifyHandler();
 class JK_API StandardNotifyHandler : public JKNotifyHandler
 {
 public:
+	StandardNotifyHandler();
+
 	void notify(JK_NAMESPACE::NotifySeverity severity, const char *message);
 };
 

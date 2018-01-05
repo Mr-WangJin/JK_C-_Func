@@ -200,7 +200,8 @@ std::string get_path(const std::string & url)
 // 		<< get_headers_keys(headers) << "/" << signature;
 // 
 // 	headers["authorization"] = ss.str();
-// }
+// }
+
 
 // void makeUrlencodedForm(std::map<std::string, std::string> const & params, std::string * content) const
 // {
@@ -252,6 +253,7 @@ std::string get_path(const std::string & url)
 // 		*slist = curl_slist_append(*slist, ostr.str().c_str());
 // 		ostr.str("");
 // 	}
-// }
+// }
+
 
 END_JK_NAMESPACE
