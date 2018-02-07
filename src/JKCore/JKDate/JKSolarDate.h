@@ -15,7 +15,7 @@
 
 #include <cassert>
 
-class ChineseDate;  // 前置声明
+class JKChineseDate;  // 前置声明
 
 /*
  * 阳历日期类
@@ -23,14 +23,6 @@ class ChineseDate;  // 前置声明
  */
 class SolarDate
 {
-private:
-    int m_year;      // 1~?
-    int m_month;     // 1~12
-    int m_day;       // 1~[28|29|30|31]
-    
-    static const int sm_monthDay[12];    // 平年中每一个月的天数
-    static const int sm_yearDays[12];    // 平年中每一个月之前所有月的天数
-    
 public:
     SolarDate();
     SolarDate(int year, int month, int day);
@@ -72,7 +64,7 @@ public:
     
     // 转换为农历（把公元1901年2月19日到公元2051年2月29日期间的公历日期转换为农历日期）
     // 如果转换成功，返回true；否则返回false
-    bool ToChineseDate(ChineseDate &date) const;
+    bool ToChineseDate(JKChineseDate &date) const;
     
 private:
     // 计算某年之前的闰年数
@@ -87,6 +79,14 @@ private:
     // 向后（过去）调整指定天数（注意：不能调整到公元1年1月1日之前）
     // 如果调整成功，则返回true；否则返回false（此时*this在调用前后不会发生改变）
     bool DoAdjustBackward(int days);
+
+private:
+	int m_year;      // 1~?
+	int m_month;     // 1~12
+	int m_day;       // 1~[28|29|30|31]
+
+	static const int sm_monthDay[12];    // 平年中每一个月的天数
+	static const int sm_yearDays[12];    // 平年中每一个月之前所有月的天数
 };
 
 inline SolarDate::SolarDate(): m_year(1), m_month(1), m_day(1)
@@ -95,7 +95,7 @@ inline SolarDate::SolarDate(): m_year(1), m_month(1), m_day(1)
 
 inline SolarDate::SolarDate(int year, int month, int day): m_year(year), m_month(month), m_day(day) 
 {
-    //assert(IsValidDate());  // 当ChineseDate对象内部数据变化时确保仍是正确的日期
+    //assert(IsValidDate());  // 当JKChineseDate对象内部数据变化时确保仍是正确的日期
 }
 
 inline int SolarDate::GetYear() const
@@ -189,7 +189,7 @@ inline bool SolarDate::AdjustDays(int days)
     else if (days < 0)
         return DoAdjustBackward(-days);
     
-    assert(IsValidDate());  // 当ChineseDate对象内部数据变化时确保仍是正确的日期
+    assert(IsValidDate());  // 当JKChineseDate对象内部数据变化时确保仍是正确的日期
     return true;
 }
 

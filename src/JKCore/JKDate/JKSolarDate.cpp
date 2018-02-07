@@ -6,8 +6,8 @@
  * @Version  0.1
  */
 
-#include "SolarDate.h"
-#include "ChineseDate.h"
+#include "JKSolarDate.h"
+#include "JKChineseDate.h"
 
 // 平年中每一个月的天数
 const int SolarDate::sm_monthDay[12] = {
@@ -62,7 +62,7 @@ bool SolarDate::FromYearDay(int days)
         }
     }
     
-    assert(IsValidDate());  // 当ChineseDate对象内部数据变化时确保仍是正确的日期
+    assert(IsValidDate());  // 当JKChineseDate对象内部数据变化时确保仍是正确的日期
     return true;
 }
 
@@ -150,7 +150,7 @@ bool SolarDate::DoAdjustBackward(int days)
 
 // 转换为农历（把公元1901年2月19日到公元2051年2月10日期间的公历日期转换为农历日期）
 // 如果转换成功，返回true；否则返回false
-bool SolarDate::ToChineseDate(ChineseDate &date) const
+bool SolarDate::ToChineseDate(JKChineseDate &date) const
 {
     if (this->IsPrior(SolarDate(1901, 12, 19)) || SolarDate(2051, 2, 10).IsPrior(*this))
         return false; // 只能转换公元1901年2月19日到公元2051年2月10日期间的公历日期
@@ -161,10 +161,10 @@ bool SolarDate::ToChineseDate(ChineseDate &date) const
     // 计算出当前日期与参考日期之间的天数
     int days = this->Diff(refDay);
     
-    ChineseDate tmp(2000, 1, 1);
+    JKChineseDate tmp(2000, 1, 1);
     tmp.AdjustDays(days);
     date = tmp;
-    assert(tmp.Diff(ChineseDate(2000, 1, 1)) == days);
+    assert(tmp.Diff(JKChineseDate(2000, 1, 1)) == days);
     
     return true;
 }

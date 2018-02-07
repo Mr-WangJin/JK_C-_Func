@@ -1,11 +1,3 @@
-/**
- * ChineseCalendarDB.h
- * @Author   Tu Yongce <yongce@126.com>
- * @Created  2008-12-13 
- * @Modified 2011-11-28 Lihaifeng Add funtion GetEraAndYear(), QQ:61673110, Company:www.idianjing.com.
- * @Version  0.1
- */
-
 #ifndef CHINESE_CALENDAR_DB_H_INCLUDED
 #define CHINESE_CALENDAR_DB_H_INCLUDED
 
@@ -17,7 +9,7 @@
 #include <stdint.h>
 #include <utility>
 
-class ChineseCalendarDB
+class JKChineseCalendarDB
 {
 private:
     
@@ -39,7 +31,7 @@ public:
      * 查询农历某年的闰月
      * @param year: 要查询的年份，有效取值范围1901~2050
      * @return: 返回该年的闰月（如果没有闰月则返回0）
-     *          如果参数year不在有效值范围内，则抛出异常ChineseCalendarDB::InvalidParamter
+     *          如果参数year不在有效值范围内，则抛出异常JKChineseCalendarDB::InvalidParamter
      */
     static int GetLeapMonth(int year)
     {
@@ -52,7 +44,7 @@ public:
      * 查询农历某年的月数
      * @param year: 要查询的年份，有效取值范围1901~2050
      * @return: 返回该年的月数（如果没有闰月则返回12，有闰月返回13）
-     *          如果参数year不在有效值范围内，则抛出异常ChineseCalendarDB::InvalidParamter
+     *          如果参数year不在有效值范围内，则抛出异常JKChineseCalendarDB::InvalidParamter
      */
     static int GetYearMonths(int year)
     {
@@ -66,7 +58,7 @@ public:
      * @param year: 要查询的年份，有效取值范围1901~2050
      * @param month: 要查询的月份，有效取值范围为1~12或1~13（有闰月）
      * @return: 返回该月的天数（30或29）
-     *          如果参数year或month不在有效值范围内，则抛出异常ChineseCalendarDB::InvalidParamter
+     *          如果参数year或month不在有效值范围内，则抛出异常JKChineseCalendarDB::InvalidParamter
      */
     static int GetMonthDays(int year, int month)
     {
@@ -84,7 +76,7 @@ public:
      * 查询农历某年的天数
      * @param year: 要查询的年份，有效取值范围1901~2050
      * @return: 返回该年的天数
-     *          如果参数year不在有效值范围内，则抛出异常ChineseCalendarDB::InvalidParamter
+     *          如果参数year不在有效值范围内，则抛出异常JKChineseCalendarDB::InvalidParamter
      */
     static int GetYearDays(int year)
     {
@@ -109,7 +101,7 @@ public:
      * @param year: 要查询的年份，有效取值范围1901~2050
      * @param index: 要查询的节气，有效取值范围1~24
      * @return: 返回该节气的日期（公历日期）
-     *          如果参数year或index不在有效值范围内，则抛出异常ChineseCalendarDB::InvalidParamter
+     *          如果参数year或index不在有效值范围内，则抛出异常JKChineseCalendarDB::InvalidParamter
      */
     static int GetSolarTerm(int year, int index) 
     {
@@ -128,7 +120,7 @@ public:
      * 查询指定年份的农历年代和农历甲子 Add By Lihaifeng 2011-11-28
      * @param year: 要查询的年份，有效取值范围1901-2050
      * @return: 返回农历的年代和甲子
-     *          如果参数year不在有效值范围内，则抛出异常ChineseCalendarDB::InvalidParamter
+     *          如果参数year不在有效值范围内，则抛出异常JKChineseCalendarDB::InvalidParamter
      */
     static std::pair<int, int> GetEraAndYearOfLunar(int year)
     {
