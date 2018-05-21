@@ -187,8 +187,6 @@ JKDeleteHandler* JKReferenced::getDeleteHandler()
 	return s_deleteHandler.get();
 }
 
-
-
 JKObserverSet* JKReferenced::getOrCreateObserverSet() const
 {
 #if defined(_OSG_REFERENCED_USE_ATOMIC_OPERATIONS)
@@ -258,7 +256,6 @@ void JKReferenced::signalObserversAndDelete(bool signalDelete, bool doDelete) co
 		else delete this;
 	}
 }
-
 
 void JKReferenced::setThreadSafeRefUnref(bool threadSafe)
 	{
