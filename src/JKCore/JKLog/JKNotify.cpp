@@ -216,6 +216,11 @@ std::ostream& JK_NAMESPACE::notify(const JK_NAMESPACE::NotifySeverity severity)
 	return getNotifySingleton()._nullStream;
 }
 
+StandardNotifyHandler::StandardNotifyHandler()
+	: JKNotifyHandler()
+{
+}
+
 void JK_NAMESPACE::StandardNotifyHandler::notify(JK_NAMESPACE::NotifySeverity severity, const char *message)
 {
 	if (severity <= JK_NAMESPACE::WARN)

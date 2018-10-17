@@ -2,6 +2,7 @@
 
 #include "JKCommon/JKCommon.h"
 #include "JKCommon/JKBase.h"
+#include <map>
 
 using namespace std;
 
@@ -25,6 +26,14 @@ public:
 
 	static string UTF8ToANSI(const string& str);
 	//static string ANSIToUTF8(const string& str);	
+
+	//转换为16进制
+	static std::string to_hex(unsigned char c, bool lower = false);		
+	
+	static std::string to_upper(std::string src);
+	
+	static std::string to_lower(std::string src);
+	
 
 public:
 	static bool		to_bool( string value );

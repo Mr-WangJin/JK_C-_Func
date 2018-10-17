@@ -1,11 +1,16 @@
 #pragma once
 
+/** 
+ *	日志记录文件，可设置通知级别
+ */
+
 #include "JKCommon/JKCommon.h"
 #include "JKFramework/SmartPtr/JKReferenced.h"
 #include <ostream>
 
 BEGIN_JK_NAMESPACE
 
+/** 通知级别 */
 enum NotifySeverity {
 		ALWAYS = 0,
 		FATAL = 1,
@@ -14,20 +19,22 @@ enum NotifySeverity {
 		INFO = 4,
 		DEBUG_INFO = 5,
 		DEBUG_FP = 6
-	};
+};
 
+/** 设置通知级别 */
 extern JK_API void setNotifyLevel(NotifySeverity severity);
 
-/** get the notify level. */
+/** 获取通知级别 */
 extern JK_API NotifySeverity getNotifyLevel();
 
-/** initialize notify level. */
+/** 初始化通知级别 */
 extern JK_API bool initNotifyLevel();
 
 #ifdef JK_NOTIFY_DISABLED
 inline bool isNotifyEnabled(NotifySeverity) { return false; }
 #else
-/** is notification enabled, given the current setNotifyLevel() setting? */
+
+/** 判断通知级别是否可用 */
 extern JK_API bool isNotifyEnabled(NotifySeverity severity);
 #endif
 
@@ -54,9 +61,12 @@ extern JK_API void setNotifyHandler(JKNotifyHandler *handler);
 
 extern JK_API JKNotifyHandler *getNotifyHandler();
 
+/** 标准通知句柄类 */
 class JK_API StandardNotifyHandler : public JKNotifyHandler
 {
 public:
+	StandardNotifyHandler();
+
 	void notify(JK_NAMESPACE::NotifySeverity severity, const char *message);
 };
 

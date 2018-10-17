@@ -42,11 +42,16 @@ SOURCE_GROUP(JKAlgorithm\\JKCurve FILES ${JK_Curve_SRC})
 FILE(GLOB JK_COMMAND_LIST ./JKCommand/*)
 SOURCE_GROUP(JKCommand FILES ${JK_COMMAND_LIST})
 
+## date
+FILE(GLOB JK_Date_LIST ./JKDate/*)
+SOURCE_GROUP(JKDate FILES ${JK_Date_LIST})
+
 ## framework
 FILE(GLOB JK_FRAMEWORK_SRC ./JKFramework/*.h ./JKFramework/*.cpp)
 FILE(GLOB JK_SmartPtr_SRC ./JKFramework/SmartPtr/*.h ./JKFramework/SmartPtr/*.cpp)
 SOURCE_GROUP(JKFramework FILES ${JK_FRAMEWORK_SRC})
 SOURCE_GROUP(JKFramework\\JKSmartPtr FILES ${JK_SmartPtr_SRC})
+
 
 SET(src_list
 	lib_jk.h	
@@ -63,6 +68,7 @@ SET(src_list
 	${JK_ALGORITHM_LIST}
 	${JK_Curve_SRC}
 	${JK_COMMAND_LIST}
+	${JK_Date_LIST}
 )
 
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/3rdParty/glm/)

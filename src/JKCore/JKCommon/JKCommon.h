@@ -36,11 +36,18 @@ typedef const char* CPStr;
 #endif // _UNICODE
 
 /** 定义基本数据类型 */
-typedef unsigned long long JKUInt64;
-typedef unsigned int JKUInt;
-typedef unsigned long JKULong;
-typedef unsigned long JKLong;
-typedef unsigned short JKUShort;
+typedef int						JKInt;
+typedef unsigned int			JKUInt;
+typedef long long				JKInt64;
+typedef unsigned long long		JKUInt64;
+typedef long					JKLong;
+typedef unsigned long			JKULong;
+typedef short					JKShort;
+typedef unsigned short			JKUShort;
+typedef float					JKFloat;
+typedef double					JKDouble;
+typedef char					JKChar;
+
 
 
 

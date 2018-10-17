@@ -1,4 +1,9 @@
 #pragma once
+
+/** 
+ *	删除JKReferenced对象 默认句柄类， 支持多线程
+ */
+
 #include "JKCommon/JKCommon.h"
 #include <list>
 #include <mutex>

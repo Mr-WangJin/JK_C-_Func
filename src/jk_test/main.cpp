@@ -7,6 +7,8 @@
 #include <iostream>
 #include <JKFramework\JKJsonCPPHelper.h>
 #include "JKAlgorithm\Curve\JKLagrange.h"
+#include "JKUtil\JKUrl.h"
+#include "jk_test_notify.h"
 
 USING_JK_NAMESPACE
 
@@ -41,21 +43,11 @@ void testThreadPool() {
 }
 
 #include <basetsd.h>
-#include <glm/vec2.hpp>
-
-
 
 int main()
 {
-	glm::vec2 zzz(1.0,2.0);
-	zzz += 2;
 
-
-	vector<int> bb; bb.push_back(1);
-
-	vector<int> a = lagrange4<vector<int>>(bb, bb, bb, bb, 2);
-
-
+	testNotify();
 	
 	system("pause");
 	return 1;

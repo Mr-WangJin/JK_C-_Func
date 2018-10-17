@@ -1,5 +1,9 @@
 #pragma once
 
+/** 
+ *	嵌入式计数指针类，支持多线程，内嵌监听者模式。
+ */
+
 #include "JKCommon/JKCommon.h"
 #include <mutex>          // std::mutex
 
@@ -65,7 +69,6 @@ public:
 	static void setThreadSafeReferenceCounting(bool enableThreadSafeReferenceCounting);
 
 	static bool getThreadSafeReferenceCounting();
-
 
 	static void setDeleteHandler(JKDeleteHandler* handler);
 
