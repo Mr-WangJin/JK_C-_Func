@@ -2,6 +2,6 @@
 #
 #	JK_CPP
 #
-#	Record some c++ function.
+#	记录一些 c++ 公用方法.
 #
 #	Hope this will help you. 
