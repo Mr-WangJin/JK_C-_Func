@@ -3,6 +3,7 @@
 #include "JKCommon/JKCommon.h"
 #include "JKCommon/JKBase.h"
 #include <map>
+#include <iostream>
 
 using namespace std;
 
@@ -90,6 +91,34 @@ public:
 	static wstring	wfrom_double( double value );
 
 	static wstring	wfrom_int64( interior_index value );
+
+    template<typename ... Param>
+    static std::vector<std::string> to_string(const Param &...param)
+    {
+        const auto to_string_impl = [](const auto &p){
+            std::stringstream ss;
+            ss << p;
+            return ss.str();
+        };
+        return{ to_string_impl(param)... };
+    };
+
+//     static string testVariadicTemplate(const std::string & param)
+//     {
+//         std::cout << param;
+//         return param;
+//     }
+//     static string testVariadicTemplate()
+//     {
+//         std::cout << "end";
+//         return "end";
+//     }
+// 
+//     template<typename ...Params>
+//     static void testVariadicTemplate(const Params & ...params)
+//     {
+//         testVariadicTemplate(params...);
+//     }
 
 
 };
